@@ -1,0 +1,14 @@
+Import('env')
+
+
+env.add_source_files(env.modules_sources, "*.cpp") #this will add all the cpp files
+
+env.Append(CPPPATH=['D:/Programs/Godot/versions/cpp/custom_module/godot-3.4/modules/calculator/opencv/build','D:/Programs/Godot/versions/cpp/custom_module/godot-3.4/modules/calculator/opencv/build/include'])
+
+
+env.Append(LIBPATH=['opencv/build/x64/vc15/lib'])
+
+if env.msvc:
+    env.Append(LIBS=[File('D:/Programs/Godot/versions/cpp/custom_module/godot-3.4/modules/calculator/opencv/build/x64/vc15/lib/opencv_world460.lib'), File('D:/Programs/Godot/versions/cpp/custom_module/godot-3.4/modules/calculator/opencv/build/x64/vc15/lib/opencv_world460d.lib')])
+else:
+    env.Append(LIBS=['opencv_world460', 'opencv_world460d'])
